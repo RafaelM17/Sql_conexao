@@ -24,17 +24,17 @@ public class Conexao_mySql {
             ConncetFactory conexaoFactory = new ConncetFactory();
             Connection conexao = conexaoFactory.getConnection();
             
-            // Verifica se a conexão foi estabelecida com sucesso
+         
             if (conexao != null) {
                 System.out.println("Conectado");
                 
-                // Criação de uma declaração SQL
+               
                 Statement stmt = conexao.createStatement();
                 
-                // Execução da consulta SQL
+             
                 ResultSet resultado = stmt.executeQuery("SELECT * FROM exemplo");
                 
-                // Processamento dos resultados
+        
                 StringBuilder resultadoString = new StringBuilder();
                 while (resultado.next()) {
                     int id = resultado.getInt("id");
@@ -42,16 +42,16 @@ public class Conexao_mySql {
                     int idade = resultado.getInt("idade");
                     String email = resultado.getString("email");
 
-                    // Adiciona os dados à variável resultadoString
+                  
                     resultadoString.append("ID: ").append(id).append(", Nome: ").append(nome)
                                     .append(", Idade: ").append(idade).append(", Email: ").append(email)
                                     .append("\n");
                 }
 
-                // Imprime a variável resultadoString
+           
                 System.out.println(resultadoString.toString());
 
-                // Fechamento dos recursos
+              
                 resultado.close();
                 stmt.close();
                 conexao.close();
